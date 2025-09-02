@@ -3,6 +3,7 @@ import { articlesData } from '../data/articles';
 import type { ArticleCategory } from '../types';
 import ArticleCard from '../components/ArticleCard';
 import NewsFilter from '../components/NewsFilter'; 
+import CtaSection from '../components/CtaSection/CtaSection';
 
 const NewsPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -32,20 +33,19 @@ const NewsPage = () => {
   }, [filters, searchQuery]);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-16">
+    <><main className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
       <header className="text-center mb-12">
         <h1 className="text-5xl font-extrabold text-gray-900">Actualités</h1>
         <p className="mt-4 text-lg text-gray-600">Les dernières nouvelles et événements de la SETAM.</p>
       </header>
 
-      <NewsFilter 
+      <NewsFilter
         categories={availableCategories}
         tags={availableTags}
         activeFilters={filters}
         onFilterChange={handleFilterChange}
         searchQuery={searchQuery}
-        onSearchChange={setSearchQuery}
-      />
+        onSearchChange={setSearchQuery} />
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
         {filteredArticles.length > 0 ? (
@@ -54,7 +54,10 @@ const NewsPage = () => {
           <p className="col-span-full text-center text-gray-500">Aucun article ne correspond à votre recherche.</p>
         )}
       </div>
-    </div>
+    </main>
+    <CtaSection />
+    </>
+    
   );
 };
 

@@ -2,3 +2,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --accent1: #D9EEFF;
+  --accent2: #B8DFFF;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background: radial-gradient(circle at 20% 80%, var(--accent1) 0%, transparent 60%),
+              radial-gradient(circle at 80% 20%, var(--accent2) 0%, transparent 60%);
+  filter: blur(60px);
+  opacity: 0.35;
+  animation: drift 20s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+  0%   { transform: translate(-2%, -1%) rotate(0deg); }
+  100% { transform: translate( 2%,  1%) rotate(3deg); }
+}
+
+::-webkit-scrollbar {
+  display: none; 
+}
+
+* {
+  scrollbar-width: none; 
+}

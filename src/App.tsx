@@ -7,7 +7,7 @@ function App() {
   const location = useLocation();
 
   return (
-    <div className="min-h-screen bg-gray-50"> {/* Fond simple pour commencer */}
+
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<NewsPage />} />
@@ -16,7 +16,7 @@ function App() {
           <Route path="*" element={<h1>404</h1>} />
         </Routes>
       </AnimatePresence>
-    </div>
+   
   );
 }
 
